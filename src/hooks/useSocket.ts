@@ -6,7 +6,7 @@ export const useSocket = (): Socket | null => {
 
     useEffect(() => {
         const socketInitializer = () => {
-            const newSocket = io('http://localhost:3001', {
+            const newSocket = io(process.env.NEXT_PUBLIC_API_HOST, {
                 transports: ['websocket'],
                 upgrade: false,
             })
