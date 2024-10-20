@@ -53,7 +53,7 @@ const QuizPage = () => {
 
 
 
-      socket.on('answer-result', (data: AnswerResult) => {
+      socket.on('quiz-result', (data: AnswerResult) => {
         setLeaderboard(data.leaderboard);
         const userLeaderboard = data.leaderboard.find((item)=>{
           return item.quizUser.quizUserId === userId
@@ -67,7 +67,7 @@ const QuizPage = () => {
 
     return () => {
       if (socket) {
-        socket.off('answer-result');
+        socket.off('quiz-result');
       }
     };
   }, [socket, quizId, userQuizSessionId, userId]);
